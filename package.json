@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "index.js",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
+    "postinstall": "ng build --aot --prod"
   },
   "private": true,
   "dependencies": {
@@ -46,16 +47,8 @@
     "tslint": "~5.18.0",
     "typescript": "~3.7.5"
   },
-  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hana9217/Trabajo-06-Angular.git"
-  },
-  "author": "Hana",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/hana9217/Trabajo-06-Angular/issues"
-  },
-  "homepage": "https://github.com/hana9217/Trabajo-06-Angular#readme"
+
+  "engines" : "12.16.1",
+  "npm": "6.13.4"
+  }
 }
