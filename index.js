@@ -1,34 +1,11 @@
 var express = require('express');
-var socket = require('socket.io');
 
 // App setup
 var app = express();
 var port = process.env.PORT || 4000;
-//app.listen(port);
-var server = app.listen(port, function(){
-    console.log('listening for requests on port 4000,');
+
+app.get("/", function(req, res) {
+    res.send('listening for requests on port 4000');
 });
 
-// Static files
-app.use(express.static('public'));
-
-// Socket setup & pass server
-var io = socket(server);
-io.on('connection', (socket) => {
-
-    console.log('made socket connection', socket.id);
-
-    // Handle chat event
-    // escucha el evento
-    socket.on('chat', function(data){
-        // console.log(data);
-        io.sockets.emit('chat', data);
-    });
-
-    // Handle typing event
-    socket.on('typing', function(data){
-        socket.broadcast.emit('typing', data);
-    });
-
-});
-//nodemon index     http://localhost:4000/
+app.listen(port);
